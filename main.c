@@ -16,25 +16,34 @@ int main(void)
 
     unsigned short int doesCpfContainsSpecialChars = doesItContainsSpecialChar(cpfInput);
     unsigned short int firstRealVerifyingDigit = 0, secondRealVerifyingDigit = 0;
+    unsigned short int areValids = 0, fInputDigit = 0, sInputDigit = 0;
 
     if (doesItContainsSpecialChar)
     {
         moveNumbersToAnotherArray(cpfInput, cpfNumbers);
         firstRealVerifyingDigit = calculateFirstRealVerifyingDigit(cpfNumbers);
         secondRealVerifyingDigit = calculateSecondRealVeryfingDigit(cpfNumbers);
-        unsigned short int areValids = areDigitsValids(firstRealVerifyingDigit, secondRealVerifyingDigit, cpfNumbers[9], cpfNumbers[10]);
-
-        if (!areValids) printf("\nO CPF digitado é inválido!.\n");
-        else printf("\nO CPF digitado é válido!.\n");
+        fInputDigit = cpfNumbers[9];
+        sInputDigit = cpfNumbers[10];
+        areValids = areDigitsValids(firstRealVerifyingDigit, secondRealVerifyingDigit, fInputDigit, sInputDigit);
     }
     else {
         firstRealVerifyingDigit = calculateFirstRealVerifyingDigit(cpfInput);
         secondRealVerifyingDigit = calculateSecondRealVeryfingDigit(cpfInput);
-        unsigned short int areValids = areDigitsValids(firstRealVerifyingDigit, secondRealVerifyingDigit, cpfInput[10], cpfInput[11]);
-
-        if (!areValids) printf("\nO CPF digitado é inválido!.\n");
-        else printf("\nO CPF digitado é válido!.\n");
+        fInputDigit = cpfNumbers[10];
+        sInputDigit = cpfNumbers[11];
+        areValids = areDigitsValids(firstRealVerifyingDigit, secondRealVerifyingDigit, fInputDigit, sInputDigit);
     }
+
+    if (!areValids)
+    {
+        printf("\nO CPF digitado é inválido!.\n");
+        printf("\t=> Dígito esperado pelos cálculos realizados: %d%d\n\t=> Dígito que foi encontrado no CPF digitado: %d%d\n", firstRealVerifyingDigit, secondRealVerifyingDigit, fInputDigit - '0', sInputDigit - '0');
+    }
+    else 
+        printf("\nO CPF digitado é válido!.\n");
+
+
 }
 
 void moveNumbersToAnotherArray(char *firstArray, char *secondArray)

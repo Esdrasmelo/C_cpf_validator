@@ -43,6 +43,8 @@ int main(void)
     else 
         printf("\nO CPF digitado é válido!.\n");
 
+    return 0;
+
 
 }
 

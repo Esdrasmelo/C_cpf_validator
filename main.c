@@ -2,10 +2,10 @@
 #include <string.h>
 
 void moveNumbersToAnotherArray(char *firstArray, char *secondArray);
-int doesItContainsSpecialChar(char *firstArray);
-int calculateFirstRealVerifyingDigit(char *cpfArray);
-int calculateSecondRealVeryfingDigit(char *cpfArray);
-int areDigitsValids(unsigned short int fRealVerifyingDigit, unsigned short int sRealVerifyingDigit, unsigned char firstInputDigit, unsigned char secondInputDigit);
+unsigned short int doesItContainsSpecialChar(char *firstArray);
+unsigned short int calculateFirstRealVerifyingDigit(char *cpfArray);
+unsigned short int calculateSecondRealVeryfingDigit(char *cpfArray);
+unsigned short int areDigitsValids(unsigned short int fRealVerifyingDigit, unsigned short int sRealVerifyingDigit, unsigned char firstInputDigit, unsigned char secondInputDigit);
 
 int main(void) 
 {
@@ -60,7 +60,7 @@ void moveNumbersToAnotherArray(char *firstArray, char *secondArray)
     }
 }
 
-int doesItContainsSpecialChar(char *firstArray)
+unsigned short int doesItContainsSpecialChar(char *firstArray)
 {
     unsigned int isItSpecialChar = 0;
 
@@ -73,7 +73,7 @@ int doesItContainsSpecialChar(char *firstArray)
     return isItSpecialChar;
 }
 
-int calculateFirstRealVerifyingDigit(char *cpfArray)
+unsigned short int calculateFirstRealVerifyingDigit(char *cpfArray)
 {
     unsigned short int digitsSum = 0;
     unsigned short int auxCounter = 10;
@@ -90,7 +90,7 @@ int calculateFirstRealVerifyingDigit(char *cpfArray)
     return realVerifyingDigit;
 }
 
-int calculateSecondRealVeryfingDigit(char *cpfArray)
+unsigned short int calculateSecondRealVeryfingDigit(char *cpfArray)
 {
     unsigned short int digitsSum = 0;
     unsigned short int auxCounter = 11;
@@ -105,7 +105,7 @@ int calculateSecondRealVeryfingDigit(char *cpfArray)
     unsigned short int realVerifyingDigit = rest < 2 ? 0 : 11 - rest;
 }
 
-int areDigitsValids(unsigned short int fRealVerifyingDigit, unsigned short int sRealVerifyingDigit, unsigned char firstInputDigit, unsigned char secondInputDigit)
+unsigned short int areDigitsValids(unsigned short int fRealVerifyingDigit, unsigned short int sRealVerifyingDigit, unsigned char firstInputDigit, unsigned char secondInputDigit)
 {
     unsigned short int areValids = 0;
 
